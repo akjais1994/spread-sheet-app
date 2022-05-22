@@ -1,0 +1,36 @@
+.contextContainer {
+  list-style-type: none;
+  position: absolute;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  box-shadow: 0 2px 6px 2px rgb(60 64 67 / 15%);
+  user-select: none;
+  overflow-y: auto;
+  height: auto;
+  visibility: visible;
+  min-width: 50px;
+  background: #fff;
+  font-size: 13px;
+  margin: 0;
+  outline: none;
+  padding: 6px 0;
+  z-index: 10;
+}
+
+.listItem {
+  padding: 5px 10px;
+  text-align: left;
+}
+
+.listItem:hover {
+  background-color: rgb(0,0,0, 0.05);
+}
+
+.menuContainer {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+}
