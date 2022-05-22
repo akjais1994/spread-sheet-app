@@ -8,7 +8,7 @@ function App() {
         <strong>Google Spreadsheet Clone</strong>
       </header>
       <div className="table-container">
-        <Table x={10} y={5} />
+        <Table x={25} y={15} />
       </div>
     </div>
   );
