@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/spread-sheet-app/static/css/main.a23d38e1.css",
+    "main.js": "/spread-sheet-app/static/js/main.0d73cdd7.js",
+    "static/js/787.66f0d835.chunk.js": "/spread-sheet-app/static/js/787.66f0d835.chunk.js",
+    "index.html": "/spread-sheet-app/index.html",
+    "main.a23d38e1.css.map": "/spread-sheet-app/static/css/main.a23d38e1.css.map",
+    "main.0d73cdd7.js.map": "/spread-sheet-app/static/js/main.0d73cdd7.js.map",
+    "787.66f0d835.chunk.js.map": "/spread-sheet-app/static/js/787.66f0d835.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a23d38e1.css",
+    "static/js/main.0d73cdd7.js"
+  ]
+}
