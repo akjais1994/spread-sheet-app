@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
-import Row from './Row';
+import React, { useState } from 'react';
+import { isNumeric } from '../utils';
 import './index.css';
+import Row from './Row';
 
 /**
  * @param {Object} props props for table component
@@ -46,11 +47,24 @@ const Table = ({ x = 20, y = 20 }) => {
     });
   }
 
+
   const sortColumnWise = (y, ascendingOrder = true) => {
     setData(prev => {
       const modifiedData = [...prev.slice(1)];
 
       modifiedData.sort((a, b) => {
+        if(!a[y])
+          return 1;
+
+        if(!b[y])
+          return -1;
+
+        if(isNumeric(a[y])) {
+          a[y] = Number(a[y]);
+        }
+        if(isNumeric(b[y])) {
+          b[y] = Number(b[y]);
+        }
         if (a[y] > b[y]) {
           return ascendingOrder ? 1 : -1;
         }
