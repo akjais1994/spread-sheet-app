@@ -21,7 +21,6 @@ const ContextMenu = ({ setShow,
 
   useEffect(() => {
     if (backdropRef && backdropRef.current) {
-      console.log('backdropRef add event');
       backdropRef.current.addEventListener('click', closeContextMenu, true);
     }
 
@@ -34,25 +33,21 @@ const ContextMenu = ({ setShow,
   }, [backdropRef, closeContextMenu])
 
   const addRowAbove = e => {
-    console.log('addRow above', e);
     addRows(x);
     setShow(false);
   }
 
   function addRowBelow(e) {
-    console.log('addRow below', e);
     addRows(x + 1);
     setShow(false);
   }
 
   function addColumnsLeft(e) {
-    console.log('addRow below', e);
     addColumns(y);
     setShow(false);
   }
 
   function addColumnsRight(e) {
-    console.log('addRow below', e);
     addColumns(y + 1);
     setShow(false);
   }

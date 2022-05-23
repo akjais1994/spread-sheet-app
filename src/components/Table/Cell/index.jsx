@@ -43,7 +43,6 @@ const Cell = ({
   const handleSingleClickOnCell = () => {
     timer = setTimeout(() => {
       if (allowed) {
-        console.log('single click called', x, y);
         broadcastUnselectAllEvent();
         setSelected(true);
       }
@@ -54,7 +53,6 @@ const Cell = ({
   const handledbClickOnCell = () => {
     clearTimeout(timer);
     allowed = false;
-    console.log("🚀 ~ file: index.jsx ~ line 41 ~ handledbClickOnCell ~ handledbClickOnCell", x, y);
     broadcastUnselectAllEvent();
     setSelected(true);
     setEditable(true);
@@ -77,22 +75,17 @@ const Cell = ({
   }
 
   const broadcastUnselectAllEvent = () => {
-    console.log("🚀 ~ file: index.jsx ~ line 61 ~ broadcastUnselectAllEvent ~ broadcastUnselectAllEvent")
     const unselectEvent = new Event('unselectAll');
     window.document.dispatchEvent(unselectEvent);
   }
 
   const handleUnSelectAll = e => {
-    // console.log(`x - ${x}, y - ${y}, ~ editable`, editable)
-    // console.log(`x - ${x}, y - ${y}, ~ selected`, selected)
-    // if (selected || editable) {
     setEditable(false);
     setSelected(false);
     // }
   };
 
   const handleContextMenuEvent = useCallback(e => {
-    console.log('handleContextMenuEvent');
     e.preventDefault();
     setAnchorPoint({ x: e.pageX, y: e.pageY });
     setShowTooltip(true);
