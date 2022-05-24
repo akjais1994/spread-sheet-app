@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react'
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { ROW_HEADER_VALUES } from '../constants';
 import './index.css';
 import classNames from 'classnames';
@@ -14,6 +14,7 @@ const Cell = ({
   addRows,
   addColumns,
   sortColumnWise,
+  executeFormula = ({x,y}, val) => ({}),
 }) => {
   const [editable, setEditable] = useState(false);
   const [cellValue, setCellValue] = useState(value);
@@ -107,6 +108,19 @@ const Cell = ({
     }
   }, [cellRef, handleContextMenuEvent]);
 
+  const calculateDisplayValue = useCallback(({x,y}, val) => {
+    if (val.slice(0, 1) === '=') {
+      const res = executeFormula({ x, y }, val.slice(1))
+      if (res.error !== null) {
+        return 'INVALID'
+      }
+      return res.result;
+    }
+    return val;
+  }, [executeFormula]);
+
+  const displayValue = useMemo(() => calculateDisplayValue({x, y}, cellValue), [x, y, cellValue, calculateDisplayValue]);
+
   const renderView = () => {
     // First Column
     if (y === 0) {
@@ -149,7 +163,7 @@ const Cell = ({
         role="presentation"
         ref={cellRef}
       >
-        {cellValue}
+        {displayValue}
       </td>
 
     </>
