@@ -5,9 +5,10 @@ Simple spread sheet app.
 ### Features
 - Add data by double click
 - A tooltip (can be opened by double finger touch or right click) which gives following features -
-    - Insert columns to right/left to that column by tooltip
-    - Insert rows to top/bottom to that row by tooltip
-    - Sorting of fields columns wise ascending/descending
+    - Insert columns to right/left to that column by tooltip.
+    - Insert rows to top/bottom to that row by tooltip.
+    - Sorting of fields columns wise ascending/descending.
+    - Formula feature.
 
 ## Available Scripts
 
