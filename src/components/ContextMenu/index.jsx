@@ -1,7 +1,8 @@
 import React, { useCallback, useEffect, useRef } from 'react'
 import './index.css';
 
-const ContextMenu = ({ setShow,
+const ContextMenu = ({
+  setShow,
   anchorPointX,
   anchorPointY,
   x,
@@ -68,8 +69,8 @@ const ContextMenu = ({ setShow,
         {y === 0 ? <li onClick={addRowBelow} className="listItem">+ Insert 1 row below</li> : null}
         {y !== 0 ? <li onClick={addColumnsLeft} className="listItem">+ Insert 1 columns left</li> : null}
         {x === 0 ? <li onClick={addColumnsRight} className="listItem">+ Insert 1 columns right</li> : null}
-        {x === 0 ? <li onClick={() => sortColumnWise(y)} className="listItem">Sort Sheet A to Z</li> : null}
-        {x === 0 ? <li onClick={() => sortColumnWise(y, false)} className="listItem">Sort Sheet Z to A</li> : null}
+        {x === 0 ? <li onClick={() => { sortColumnWise(y); setShow(false); }} className="listItem">Sort Sheet A to Z</li> : null}
+        {x === 0 ? <li onClick={() => { sortColumnWise(y, false); setShow(false); }} className="listItem">Sort Sheet Z to A</li> : null}
       </ul>
     </div>
   )

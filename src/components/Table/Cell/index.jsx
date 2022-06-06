@@ -109,7 +109,7 @@ const Cell = ({
   }, [cellRef, handleContextMenuEvent]);
 
   const calculateDisplayValue = useCallback(({x,y}, val) => {
-    if (val.slice(0, 1) === '=') {
+    if (val.toString().slice(0, 1) === '=') {
       const res = executeFormula({ x, y }, val.slice(1))
       if (res.error !== null) {
         return 'INVALID'
