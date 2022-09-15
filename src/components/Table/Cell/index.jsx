@@ -94,6 +94,7 @@ const Cell = ({
 
   useEffect(() => {
     window.document.addEventListener('unselectAll', handleUnSelectAll);
+    
     if (cellRef && cellRef.current) {
       // @ts-ignore
       cellRef.current.addEventListener('contextmenu', handleContextMenuEvent);

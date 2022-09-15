@@ -12,7 +12,7 @@ import Row from './Row';
 
 let currentY;
 const Table = ({ x = 20, y = 20 }) => {
-
+  const [searchInput, setSearchInput] = useState('');
   const [data, setData] = useState([...Array(x)].map(() => Array(y)));
   const [rows, setRows] = useState(x);
   const [columns, setColumns] = useState(y);
@@ -178,17 +178,43 @@ const Table = ({ x = 20, y = 20 }) => {
       if (i === 0) {
         rowsArr.push(<thead key={i}>{row}</thead>);
       } else {
-        rowsArr.push(<tbody key={i}>{row}</tbody>);
+        rowsArr.push(row);
       }
     }
     return rowsArr;
   }
 
-  return (
-    <table>
-      {renderRows()}
-    </table>
+  const handleSearch = e => {
+    setSearchInput(e.target.value);
+  }
 
+  const searchField = () => {
+    const rowIndex = data.findIndex((item) => {
+      const i = item.findIndex((col) => col && col.includes(searchInput));
+      if (i >= 0) {
+        return true;
+      }
+      return false;
+    });
+    console.log("🚀 ~ file: index.jsx ~ line 195 ~ rowIndex ~ rowIndex", rowIndex);
+
+    const columnIndex = data[rowIndex].findIndex((col) => col && col.includes(searchInput));
+    console.log("columnIndex - ", columnIndex);
+
+    window.scrollTo(columnIndex * 80, rowIndex * 25);
+  }
+
+  return (
+    <div className="container">
+      <div className="searchInputContainer">
+        <label>Search Field here</label>
+        <input value={searchInput} onChange={handleSearch} className="searchInput" />
+      </div>
+      <button onClick={searchField}>Search</button>
+      <table>
+        {renderRows()}
+      </table>
+    </div>
   )
 }
 
